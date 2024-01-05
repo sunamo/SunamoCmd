@@ -1,3 +1,5 @@
+namespace SunamoCmd;
+
 public class CmdBootStrap
 {
     public static CLProgressBar clpb = new CLProgressBar();

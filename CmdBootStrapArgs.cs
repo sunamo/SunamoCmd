@@ -1,3 +1,5 @@
+namespace SunamoCmd;
+
 public class CmdBootStrapArgs
 {
     #region Cant be null

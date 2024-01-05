@@ -24,3 +24,6 @@ global using sunamo.Data;
 global using sunamo.Loaders;
 global using SunamoExceptions;
 global using SunamoShared;
+global using SunamoCmd.Args;
+global using SunamoCmd.Essential;
+global using SunamoCmd;

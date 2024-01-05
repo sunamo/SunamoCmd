@@ -1,3 +1,6 @@
+namespace SunamoCmd;
+
+
 public class ClSources
 {
     /// <summary>

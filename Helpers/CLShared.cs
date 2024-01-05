@@ -1,3 +1,5 @@
+namespace SunamoCmd.Helpers;
+
 public partial class CLCmd : CL
 {
 
@@ -143,5 +145,43 @@ public partial class CLCmd : CL
     public static Browsers SelectFromBrowsers(Action addBrowser)
     {
         throw new NotImplementedException();
+    }
+
+    public static string AskForFolder(string folderDbg)
+    {
+        string folder = null;
+
+#if DEBUG
+        folder = folderDbg;
+#else
+        folder = LoadFromClipboardOrConsole("folder");
+#endif
+
+        return folder;
+    }
+
+    public static List<string> AskForFolderMascRecFiles(string folderDbg, string mascDbg, bool recDbg)
+    {
+        var (folder, masc, rec) = CLCmd.AskForFolderMascRec(folderDbg, mascDbg, recDbg);
+        return Directory.GetFiles(folder, masc, rec ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly).ToList();
+    }
+
+    public static (string folder, string masc, bool rec) AskForFolderMascRec(string folderDbg, string mascDbg, bool? recDbg)
+    {
+        string folder = null;
+        string masc = null;
+        bool? rec = false;
+
+#if DEBUG
+        folder = folderDbg;
+        masc = mascDbg;
+        rec = recDbg;
+#else
+        folder = LoadFromClipboardOrConsole("folder");
+        masc = CL.UserMustType("masc");
+        recDbg = CL.UserMustTypeYesNo("recursive");
+#endif
+
+        return (folder, masc, rec);
     }
 }

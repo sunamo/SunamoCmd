@@ -1,3 +1,5 @@
+namespace SunamoCmd.Helpers;
+
 /// <summary>
 /// Později převést i toto do cl ať nemusím nikde psát postfix Cmd
 /// </summary>

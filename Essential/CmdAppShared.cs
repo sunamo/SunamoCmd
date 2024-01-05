@@ -1,3 +1,5 @@
+namespace SunamoCmd.Essential;
+
 public partial class CmdApp
 {
     public static void Init()
@@ -12,7 +14,7 @@ public partial class CmdApp
         //dump = SunamoJsonHelper.SerializeObject(e, true);
         dump = RH.DumpAsString(new DumpAsStringArgs { o = e, d = DumpProvider.Reflection });
 
-        ThisApp.SetStatus(TypeOfMessage.Error, e.ExceptionObject.ToString());
+        ThisApp.Error( e.ExceptionObject.ToString());
         //WriterEventLog.WriteToMainAppLog(dump, System.Diagnostics.EventLogEntryType.Error, Exc.CallingMethod());
     }
 

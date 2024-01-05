@@ -12,24 +12,26 @@
     <CodeAnalysisRuleSet>../../sunamo/sunamo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject></StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0">
-    </PackageReference>
-    <PackageReference Include="SunamoCl" Version="23.11.19.2" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0">
-    </PackageReference>
+    <Compile Remove="StarterPack\**" />
+    <EmbeddedResource Remove="StarterPack\**" />
+    <None Remove="StarterPack\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="C:\Users\r\.nuget\packages\sunamoxlf\23.12.9.1\contentFiles\any\net8.0\WinSec\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"></PackageReference>
+    <PackageReference Include="SunamoCl" Version="23.12.9.2" />
+    <PackageReference Include="SunamoShared" Version="23.12.17.2" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0"></PackageReference>
     <PackageReference Include="System.Diagnostics.EventLog" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="StarterPack\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SunamoDebugIO\SunamoDebugIO.csproj" />
-    <ProjectReference Include="..\SunamoXlf\SunamoXlf.csproj" />
-    <ProjectReference Include="..\sunamo\sunamo.csproj" />
+    <PackageReference Include="SunamoXlf" Version="23.12.9.1" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>$(DefineConstants);ASYNC</DefineConstants>

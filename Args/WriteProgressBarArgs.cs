@@ -1,3 +1,5 @@
+namespace SunamoCmd.Args;
+
 public class WriteProgressBarArgs
 {
     public static WriteProgressBarArgs Default = new WriteProgressBarArgs();

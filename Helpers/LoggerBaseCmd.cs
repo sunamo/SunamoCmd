@@ -1,4 +1,4 @@
-namespace cmd.Helpers;
+namespace SunamoCmd.Helpers;
 
 /// <summary>
 /// Zbylé metody jež nemůžou být v cl, protože mají deps
@@ -25,6 +25,6 @@ public class LoggerBaseCmd : LoggerBase
 
     public void WriteArgs(params object[] args)
     {
-        _writeLineDelegate.Invoke(SH.JoinPairs(args));
+        _writeLineDelegate.Invoke(SHJoin.JoinPairs(args));
     }
 }

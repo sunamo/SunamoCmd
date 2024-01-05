@@ -1,3 +1,5 @@
+namespace SunamoCmd.Tables;
+
 /// <summary>
 /// Working
 /// Rightly set up width of column by content

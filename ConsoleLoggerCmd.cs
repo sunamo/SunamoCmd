@@ -1,4 +1,4 @@
-namespace cmd;
+namespace SunamoCmd;
 
 /// <summary>
 /// Musí tu být se svými 3 řádky pro CmdApp.SetLogger
@@ -7,7 +7,7 @@ namespace cmd;
 /// </summary>
 public class ConsoleLoggerCmd : LoggerBase, ILoggerBase
 {
-    public static ConsoleLoggerCmd Instance = new ConsoleLoggerCmd(CLCmd.WriteLine);
+    public static ConsoleLoggerCmd Instance = new ConsoleLoggerCmd(CL.WriteLine);
 
     public ConsoleLoggerCmd(VoidStringParamsObjects writeLineHandler) : base(writeLineHandler)
     {

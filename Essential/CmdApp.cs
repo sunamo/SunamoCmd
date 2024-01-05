@@ -1,14 +1,19 @@
+namespace SunamoCmd.Essential;
+
 public partial class CmdApp
 {
 
 
     public static TypedLoggerBase ConsoleOrDebugTyped()
     {
-#if DEBUG
-        return TypedDebugLogger.Instance;
-#elif !DEBUG
+        //        // toto mi fungovalo při projectreference. ale při packagereference v release není žádný TypedDebugLogger
+        //#if DEBUG
+        //        return TypedDebugLogger.Instance;
+        //#elif !DEBUG
+        //        return TypedConsoleLogger.Instance;
+        //#endif
+
         return TypedConsoleLogger.Instance;
-#endif
     }
 
     /// <summary>
@@ -22,11 +27,11 @@ public partial class CmdApp
 #else
     string  
 #endif
- WaitForSaving(string myPositionsHtmlFile, Action<string> openVsCode)
+ WaitForSaving(string myPositionsHtmlFile, Func<string, Task> openVsCode)
     {
         if (openAndWaitForChangeContentOfInputFile)
         {
-            openVsCode(myPositionsHtmlFile);
+            await openVsCode(myPositionsHtmlFile);
             CLCmd.WriteLine($"Waiting for insert html to {FS.GetFileName(myPositionsHtmlFile)}, press enter to continue");
             CLCmd.ReadLine();
         }
