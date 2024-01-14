@@ -32,7 +32,6 @@ global using SunamoLogger;
 global using SunamoShared.Essential;
 global using SunamoValues;
 global using SunamoXlf;
-global using SunamoCl;
 global using SunamoData.Data;
 global using SunamoEnums.Enums;
 global using SunamoReflection.Args;

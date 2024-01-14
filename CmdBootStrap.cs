@@ -40,7 +40,7 @@ public class CmdBootStrap
 #else
     string
 #endif
- Run(AIInitArgs aiInitArgs, string appName, Func<IClipboardHelper> createInstanceClipboardHelper,
+ Run(bool isDebug, AIInitArgs aiInitArgs, string appName, Func<IClipboardHelper> createInstanceClipboardHelper,
 #if ASYNC
     Func<Task>
 #else
@@ -56,6 +56,7 @@ Action
 #endif
  Run2(new RunArgs
  {
+     IsDebug = isDebug,
      aiInitArgs = aiInitArgs,
      appName = appName,
      createInstanceClipboardHelper = createInstanceClipboardHelper,
@@ -127,6 +128,7 @@ Action
         var pAllActionsAsync = a.pAllActionsAsync;
         var isNotUt = a.isNotUt;
         var bitLockerHelperInit = a.BitLockerHelperInit;
+        var isDebug = a.IsDebug;
 
         if (bitLockerHelperInit != null)
         {
@@ -251,16 +253,18 @@ Action
         #endregion
         #endregion
 
-#if !DEBUG
-        askUser = askUserIfRelease.Value;
-#elif DEBUG
-
+        if (isDebug)
+        {
 #if ASYNC
-        await
+            await
 #endif
-        runInDebug();
-        //askUser = true;
-#endif
+            runInDebug();
+        }
+        else
+        {
+            askUser = askUserIfRelease.Value;
+        }
+
         if (AddGroupOfActions != null && pAllActions != null)
         {
             if (args.Length != 0)
@@ -283,8 +287,6 @@ Action
                 //CL.ReadLine();
             }
         }
-
-
 
         return arg;
     }

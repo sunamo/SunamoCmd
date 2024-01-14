@@ -15,5 +15,5 @@ Action
     public Dictionary<string, TaskVoid> pAllActionsAsync;
     public bool isNotUt = true;
     public Func<Func<char, bool>> BitLockerHelperInit;
-
+    public bool IsDebug;
 }
