@@ -216,7 +216,7 @@ Action
         }
 
         #region Copied from Initialize.cs
-        ProgramShared.CreatePathToFiles(AppData.ci.GetFileString);
+        await ProgramShared.CreatePathToFiles(AppData.ci.GetFileString);
 
         #region #2 Specific initialization which is not in CmdBootStrap
         //NetHelperSunamo.NEVER_EAT_POISON_Disable_CertificateValidation();
